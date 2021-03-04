@@ -1,1 +1,17 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Prompt');
+
+// Font awnsome
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@include media-breakpoint-up(lg) {
+    .w-lg-50 {
+        width: 50%;
+    }
+}
