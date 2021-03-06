@@ -13,22 +13,40 @@ class ChartController extends Controller
 {
     public function index($fruit)
     {
+        $dataset = $this->avgFruitPrice($fruit);
+
+        $chart = new FruitChart;
+        $chart->labels($dataset['label']);
+        $chart->dataset($fruit, 'line', $dataset['price'])->color('#3490dc');
+
+        return view('chart.index', [
+            'chart' => $chart,
+            'dataset' => $dataset
+        ]);
+    }
+
+    public function avgFruitPrice($fruit)
+    {
         $dataset = [];
         $label = [];
+        $collection = [];
 
         for ($i=15; $i >= 0; $i--) {
             $date = Carbon::now();
             $product_count = Product::where('name', $fruit)->whereDate('created_at', $date->subDays($i)->toDateString())->avg('price');
             array_push($dataset, $product_count ? $product_count : 0);
             array_push($label, $date->format('d/m'));
+            $collection[$i] = [
+                'price' => $product_count ? $product_count : 0,
+                'label' => $date->format('d/m/Y')
+            ];
         }
 
-        $chart = new FruitChart;
-        $chart->labels($label);
-        $chart->dataset($fruit, 'line', $dataset)->color('#3490dc');
+        $data['label'] = $label;
+        $data['price'] = $dataset;
+        $data['collection'] = $collection;
 
-        return view('chart.index', [
-            'chart' => $chart
-        ]);
+        return $data;
     }
+
 }
