@@ -10,8 +10,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Image popup
+@import '~magnific-popup/dist/magnific-popup.css';
+
 @include media-breakpoint-up(lg) {
     .w-lg-50 {
         width: 50%;
     }
+}
+
+.mfp-img {
+    background-color: white;
 }

@@ -10,6 +10,7 @@ try {
     window.Popper = require('popper.js').default;
     global.$ = global.jQuery = require('jquery');
     global.bsCustomFileInput = require('bs-custom-file-input');
+    require('magnific-popup/dist/jquery.magnific-popup');
 
     require('bootstrap');
 } catch (e) {}

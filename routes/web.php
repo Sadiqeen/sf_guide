@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('product', ProductController::class,[
-        'only' => ['create', 'store', 'edite', 'destroy']
+        'only' => ['create', 'store', 'show', 'edit', 'destroy']
     ]);
 
     Route::get('profile/view/{id?}', [ProfileController::class, 'index'])->name('profile.index');

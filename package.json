@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.2",
-        "bs-custom-file-input": "^1.3.4"
+        "bs-custom-file-input": "^1.3.4",
+        "magnific-popup": "^1.1.0"
     }
 }

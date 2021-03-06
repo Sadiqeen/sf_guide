@@ -33,7 +33,7 @@
                                         <img src="{{ $product->getFirstMediaUrl() }}" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-9 col-sm-10">
-                                        <a class="h4" href="#">{{ $product->title }}</a><br />
+                                        <a class="h4" href="{{ route('product.show', $product) }}">{{ $product->title }}</a><br />
                                         {{ $product->additional_information }}
                                     </div>
                                 </div>
