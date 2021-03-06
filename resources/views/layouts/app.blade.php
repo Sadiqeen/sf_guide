@@ -18,7 +18,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="{{ request()->routeIs('home') ? 'bg-success' : '' }}">
+<body class="{{ !request()->routeIs('welcome') ? 'bg-success' : '' }}">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm border-bottom">
             <div class="container">
@@ -51,18 +51,13 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <!--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>-->
                             <a class="btn btn-outline-success font-weight-bold" data-toggle="modal"
                                 data-target="#loginModal">เข้าสู่ระบบ</a>
                         </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
+
                         @else
                         <li class="nav-item mr-lg-4">
-                            <a class="btn btn-success font-weight-bold" href="#">ลงประกาศขาย</a>
+                            <a class="btn btn-success font-weight-bold" href="{{ route('product.create') }}">ลงประกาศขาย</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -71,9 +66,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">โปรไฟล์</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    ออกจากระบบ
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -91,11 +87,15 @@
             @yield('content')
         </main>
     </div>
+
+    @guest
     @include('auth.login')
+    @endguest
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('script')
+    @include('sweetalert::alert')
 </body>
 
 </html>

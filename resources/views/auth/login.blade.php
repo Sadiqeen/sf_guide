@@ -51,14 +51,19 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success btn-block">
-                            {{ __('Login') }}
+                            เข้าสู่ระบบ
                         </button>
 
+                        @if (Route::has('register'))
+                        <a class="btn btn-link btn-block" href="{{ route('register') }}">ลงทะเบียน</a>
+                        @endif
+
                         @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                        <a class="btn btn-link btn-block" href="{{ route('password.request') }}">
+                            ลืมรหัสผ่าน
                         </a>
                         @endif
+
                     </div>
                 </form>
             </div>
@@ -67,9 +72,9 @@
 </div>
 
 @push('script')
-@if ($errors->any())
+@if ($errors->any() || request()->get('NeedLogIn') == 'true')
 <script>
-$('#loginModal').modal('toggle')
+    $('#loginModal').modal('toggle')
 </script>
 @endif
 @endpush

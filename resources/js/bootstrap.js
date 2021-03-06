@@ -9,6 +9,7 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     global.$ = global.jQuery = require('jquery');
+    global.bsCustomFileInput = require('bs-custom-file-input');
 
     require('bootstrap');
 } catch (e) {}
