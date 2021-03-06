@@ -17,11 +17,11 @@
             </div>
             </form>
             <h4 class="text-muted mt-5">ราคาเฉลี่ยย้อนหลัง</h4>
-            <a name="" id="" class="btn btn-primary" href="{{ route('chart', 'มังคุด') }}" role="button">มังคุด</a>
-            <a name="" id="" class="btn btn-primary" href="{{ route('chart', 'ทุเรียน') }}" role="button">ทุเรียน</a>
-            <a name="" id="" class="btn btn-primary" href="{{ route('chart', 'ลองกอง') }}" role="button">ลองกอง</a>
-            <a name="" id="" class="btn btn-primary" href="{{ route('chart', 'เงาะ') }}" role="button">เงาะ</a>
-            <a name="" id="" class="btn btn-primary" href="{{ route('chart', 'ลางสาด') }}" role="button">ลางสาด</a>
+            <a name="" id="" class="btn btn-primary mt-3" href="{{ route('chart', 'มังคุด') }}" role="button">มังคุด</a>
+            <a name="" id="" class="btn btn-primary mt-3" href="{{ route('chart', 'ทุเรียน') }}" role="button">ทุเรียน</a>
+            <a name="" id="" class="btn btn-primary mt-3" href="{{ route('chart', 'ลองกอง') }}" role="button">ลองกอง</a>
+            <a name="" id="" class="btn btn-primary mt-3" href="{{ route('chart', 'เงาะ') }}" role="button">เงาะ</a>
+            <a name="" id="" class="btn btn-primary mt-3" href="{{ route('chart', 'ลางสาด') }}" role="button">ลางสาด</a>
         </div>
     </div>
 </div>

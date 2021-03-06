@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h1 class="text-center">ราคาเฉลี่ยย้อนหลัง 15 วัน</h1>
+            <h1 class="text-center">ราคาเฉลี่ย{{ request()->fruit }}ย้อนหลัง 15 วัน</h1>
             <hr>
             <div class="">
                 {!! $chart->container() !!}
