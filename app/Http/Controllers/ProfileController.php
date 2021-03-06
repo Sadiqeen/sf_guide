@@ -16,8 +16,11 @@ class ProfileController extends Controller
             $user = auth()->user();
         }
 
+        $products = $user->product()->paginate(10);
+
         return view('profile.index', [
-            'user' => $user
+            'user' => $user,
+            'products' => $products,
         ]);
     }
 

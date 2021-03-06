@@ -30,11 +30,11 @@
             @endforeach
             <hr>
             <div class="row mt-3">
-                <div class="col-lg-1 col-sm-3">
-                    <img src="{{ $product->user->getFirstMediaUrl() }}" class="img-fluid rounded-circle" alt="">
+                <div class="col-lg-1 col-sm-3 d-flex">
+                    <img src="{{ $product->user->getFirstMediaUrl() }}" class="img-fluid rounded-circle mx-auto" alt="">
                 </div>
                 <div class="col-lg-11 col-sm-9">
-                    <a class="text-success h5" href="#">{{ $product->user->name }}</a><br />
+                    <a class="text-success h5" href="{{ route('profile.index', $product->user) }}">{{ $product->user->name }}</a><br />
                     <a class="text-muted h5 mr-3" href="tel:{{ $product->user->tel }}">โทร :
                         {{ $product->user->tel ?? '-' }}</a>
                     <a class="text-muted h5" href="mail:{{ $product->user->email }}">อีเมล :
