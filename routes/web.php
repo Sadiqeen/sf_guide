@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/chart/{fruit}', 'ChartController@index')->name('chart');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('product', ProductController::class,[

@@ -22,9 +22,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Product $product)
+    public function index(Request $request)
     {
-        $products = $product->paginate(10);
+        $product = new Product;
+
+        if ($request->query('search')) {
+            $products = $product->where('title', 'like', '%' . $request->query('search') . '%')->paginate(10);
+        } else {
+            $products = $product->paginate(10);
+        }
         // dd($products->toArray());
         return view('home', [
             'products' => $products

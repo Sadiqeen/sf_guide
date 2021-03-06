@@ -9,11 +9,17 @@
         }
         @endphp
         <label for="name">
-            ชื่อสินค้า
+            ผลไม้
             <span class="text-danger">*</span>
         </label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
-            value="{{ $name ?? '' }}" onkeyup="updateTitle()" onkeydown="updateTitle()">
+        <select class="form-control" name="name" id="name" onchange="updateTitle()">
+            <option {{ $name == 'ทุเรียน' ? 'selected' : '' }}>ทุเรียน</option>
+            <option {{ $name == 'มังคุด' ? 'selected' : '' }}>มังคุด</option>
+            <option {{ $name == 'ลองกอง' ? 'selected' : '' }}>ลองกอง</option>
+            <option {{ $name == 'เงาะ' ? 'selected' : '' }}>เงาะ</option>
+            <option {{ $name == 'ลางสาด' ? 'selected' : '' }}>ลางสาด</option>
+        </select>
+
         @error('name')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -33,8 +39,11 @@
             จังหวัด
             <span class="text-danger">*</span>
         </label>
-        <input type="text" class="form-control @error('province') is-invalid @enderror" name="province" id="province"
-            value="{{ $province ?? '' }}" onkeyup="updateTitle()" onkeydown="updateTitle()">
+        <select class="form-control" name="province" id="province" onchange="updateTitle()">
+            <option {{ $province == 'ยะลา' ? 'selected' : '' }}>ยะลา</option>
+            <option {{ $province == 'ปัตตานี' ? 'selected' : '' }}>ปัตตานี</option>
+            <option {{ $province == 'นราธิวาส' ? 'selected' : '' }}>นราธิวาส</option>
+        </select>
         @error('province')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -134,9 +143,9 @@
             หน่วย
             <span class="text-danger">*</span>
         </label>
-        <select class="form-control" name="price_unit" id="price_unit" onchange="updateTitle()">
+        <select class="form-control" name="price_unit" id="price_unit" onchange="updateTitle()" readonly>
             <option {{ $price_unit == 'กก.' ? 'selected' : '' }}>กก.</option>
-            <option {{ $price_unit == 'กล่อง' ? 'selected' : '' }}>กล่อง</option>
+            {{-- <option {{ $price_unit == 'กล่อง' ? 'selected' : '' }}>กล่อง</option>
             <option {{ $price_unit == 'กำ' ? 'selected' : '' }}>กำ</option>
             <option {{ $price_unit == 'เข่ง' ? 'selected' : '' }}>เข่ง</option>
             <option {{ $price_unit == 'ช่อ' ? 'selected' : '' }}>ช่อ</option>
@@ -156,7 +165,7 @@
             <option {{ $price_unit == 'ลิตร' ? 'selected' : '' }}>ลิตร</option>
             <option {{ $price_unit == 'ลูก' ? 'selected' : '' }}>ลูก</option>
             <option {{ $price_unit == 'หวี' ? 'selected' : '' }}>หวี</option>
-            <option {{ $price_unit == 'ห่อ' ? 'selected' : '' }}>ห่อ</option>
+            <option {{ $price_unit == 'ห่อ' ? 'selected' : '' }}>ห่อ</option> --}}
         </select>
     </div>
     <div class="form-group col-md-12">

@@ -33,15 +33,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <ul class="navbar-nav w-lg-50 mt-md-0 mt-sm-2 mx-lg-auto">
-                        <div class="input-group">
-                            <input type="text" class="form-control border border-success" placeholder="ค้นหาผลไม้"
-                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-success" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                    @if(!(request()->routeIs('home') || request()->routeIs('welcome')))
+                    <form action="{{ route('home') }}" class="w-lg-50 mx-lg-auto" method="get">
+                        <ul class="navbar-nav mt-md-0 mt-sm-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control border border-success" placeholder="ค้นหาสินค้า"
+                                    aria-label="Recipient's username" name="search" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="submit" id="button-addon2"><i
+                                            class="fas fa-search"></i></button>
+                                </div>
                             </div>
-                        </div>
-                    </ul>
+                        </ul>
+                    </form>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -57,7 +62,8 @@
 
                         @else
                         <li class="nav-item mr-lg-4">
-                            <a class="btn btn-success font-weight-bold" href="{{ route('product.create') }}">ลงประกาศขาย</a>
+                            <a class="btn btn-success font-weight-bold"
+                                href="{{ route('product.create') }}">ลงประกาศขาย</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

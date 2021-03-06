@@ -26,7 +26,7 @@ class StoreProductRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'province' => 'required|max:255',
-            'quantity' => 'required|numeric|max:1000',
+            'quantity' => 'required|numeric|max:100000',
             'quantity_unit' => 'required|max:255',
             'price' => 'required|numeric|max:900000',
             'price_unit' => 'required|max:255',

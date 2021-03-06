@@ -3,14 +3,16 @@
 @section('content')
 <div class="container">
     <h2 class="text-white">ตลาดผลไม้</h2>
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="ค้นหาสินค้า" aria-label="Recipient's username"
-            aria-describedby="button-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-light" type="button" id="button-addon2"><i
-                    class="fas fa-search text-success"></i></button>
+    <form action="{{ route('home') }}" method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="ค้นหาสินค้า" aria-label="Recipient's username"
+                name="search" aria-describedby="button-addon2" value="{{ request()->query('search') }}">
+            <div class="input-group-append">
+                <button class="btn btn-light" type="submit" id="button-addon2"><i
+                        class="fas fa-search text-success"></i></button>
+            </div>
         </div>
-    </div>
+    </form>
 
     <div class="card mt-3">
         <div class="card-body">
@@ -33,7 +35,8 @@
                                         <img src="{{ $product->getFirstMediaUrl() }}" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-9 col-sm-10">
-                                        <a class="h4" href="{{ route('product.show', $product) }}">{{ $product->title }}</a><br />
+                                        <a class="h4"
+                                            href="{{ route('product.show', $product) }}">{{ $product->title }}</a><br />
                                         {{ $product->additional_information }}
                                     </div>
                                 </div>
@@ -47,7 +50,8 @@
                                 <span class="text-muted">{{ $product->public_date }}</span>
                             </td>
                             <td class="text-center">
-                                <a class="text-success font-weight-bold" href="{{ route('profile.index', $product->user) }}">{{ $product->user->name }}</a>
+                                <a class="text-success font-weight-bold"
+                                    href="{{ route('profile.index', $product->user) }}">{{ $product->user->name }}</a>
                             </td>
                         </tr>
                         @empty
