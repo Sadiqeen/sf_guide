@@ -6,10 +6,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Laravelista\Comments\Commentable;
 
 class Product extends Model implements HasMedia
 {
     use HasMediaTrait;
+    use Commentable;
 
     protected $fillable = [
         'name',

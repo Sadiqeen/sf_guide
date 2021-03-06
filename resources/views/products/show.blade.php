@@ -43,6 +43,12 @@
             </div>
         </div>
     </div>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            @comments(['model' => $product])
+        </div>
+    </div>
 </div>
 @endsection
 

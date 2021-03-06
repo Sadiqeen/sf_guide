@@ -7,11 +7,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-
+use Laravelista\Comments\Commenter;
 class User extends Authenticatable implements HasMedia
 {
     use Notifiable;
     use HasMediaTrait;
+    use Commenter;
 
     /**
      * The attributes that are mass assignable.
